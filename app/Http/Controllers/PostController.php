@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\MonthTags;
-use Illuminate\Http\Request;
 use App\Posts;
+use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,13 +14,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+       
+        $result  = Posts::getCompletePostData();
 
-        $latest = Posts::getLatestPost();
-         
-        return response()->json($latest);
-        
+        return response()->json($result);
     }
-
 
     /**
      * Show the form for creating a new resource.

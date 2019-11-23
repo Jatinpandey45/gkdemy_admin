@@ -61,6 +61,6 @@ class Posts extends Model
 
     public static function getLatestPost()
     {
-        return Posts::with(['Category','Month','Seo'])->orderBy('id','Desc')->take(5)->get();
+        return Posts::with(['Category','Month','Seo'])->orderBy('id','Desc')->take(10)->get();
     }
 }
