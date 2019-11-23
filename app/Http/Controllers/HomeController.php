@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\MonthTags;
 use Illuminate\Http\Request;
 use App\Posts;
 
@@ -17,7 +19,11 @@ class HomeController extends Controller
 
         $result  = Posts::getCompletePostData();
 
-        return response()->json($result);
+        $category = Category::all();
+
+        $month   = MonthTags::all();
+
+        return response()->json(['post' => $result,'category' => $category,'month' => $month]);
         
     }
 
