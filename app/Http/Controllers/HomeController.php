@@ -19,11 +19,7 @@ class HomeController extends Controller
 
         $result  = Posts::getCompletePostData();
 
-        $category = Category::all();
-
-        $month   = MonthTags::all();
-
-        return response()->json(['post' => $result,'category' => $category,'month' => $month]);
+        return response()->json($result);
         
     }
 
