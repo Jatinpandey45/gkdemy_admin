@@ -34,7 +34,7 @@ class Posts extends Model
 
     public function Category()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany('App\Category','gk_category_post','post_id','category_id');
     }
 
     public function Month()
