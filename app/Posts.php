@@ -63,4 +63,9 @@ class Posts extends Model
     {
         return Posts::with(['Category','Month','Seo'])->orderBy('id','Desc')->take(10)->get();
     }
+
+    public static function getPostById($id)
+    {
+        return Posts::with(['Category','Month','Seo','Tags'])->where('id',$id)->get();
+    }
 }
