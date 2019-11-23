@@ -49,8 +49,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $postDetail = Post::getPostById($id);
-        
+        $postDetail = Posts::getPostById($id);
+
         return response()->json($postDetail);
     }
 
