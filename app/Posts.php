@@ -34,7 +34,7 @@ class Posts extends Model
 
     public function Category()
     {
-        return $this->belongsToMany('App\Category','gk_category_post','post_id','category_id')->select(['category_name','id','category_slug']);
+        return $this->belongsToMany('App\Category','gk_category_post','post_id','category_id')->select(['category_name','category_id','category_slug']);
     }
 
     public function Month()
