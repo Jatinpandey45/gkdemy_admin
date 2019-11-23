@@ -23,6 +23,19 @@ class HomeController extends Controller
         
     }
 
+
+    /**
+     * latestFive
+     * 
+     */
+
+     public function latestPost()
+     {
+         $latest = Posts::getLatestPost();
+         
+         return response()->json($latest);
+     }
+
     /**
      * Show the form for creating a new resource.
      *

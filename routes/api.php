@@ -20,4 +20,5 @@ use Illuminate\Http\Request;
 Route::resource('home','HomeController');
 Route::resource('category','CategoryController');
 Route::resource('month','MonthController');
+Route::get('latestpost','HomeController@latestPost');
 

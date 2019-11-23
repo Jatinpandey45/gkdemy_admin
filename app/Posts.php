@@ -58,4 +58,9 @@ class Posts extends Model
         return Posts::with(['Category','Month','Seo'])->simplePaginate(10);
 
     }
+
+    public static function getLatestPost()
+    {
+        return Posts::with(['Category','Month','Seo'])->orderBy('id','Desc')->take(5)->get();
+    }
 }
