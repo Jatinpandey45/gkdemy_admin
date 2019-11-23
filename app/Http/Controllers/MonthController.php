@@ -48,7 +48,9 @@ class MonthController extends Controller
      */
     public function show($id)
     {
-        //
+        $monthlyPost  =  MonthTags::getMonthlyWisePost($id);
+
+        return response()->json($monthlyPost);
     }
 
     /**

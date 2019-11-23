@@ -19,6 +19,17 @@ class MonthTags extends Model
         'month_desc'
     ];
 
+    public function post()
+    {
+        return $this->belongsTo('App\Posts','id','month_id');
+    }
+
+    public static function getMonthlyWisePost($id)
+    {
+        return MonthTags::with('post.Category','post.Tags','post.Month','post.Seo')->where('id',$id)->simplepaginate(10);
+
+    }
+
     
 
     
