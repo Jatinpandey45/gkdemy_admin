@@ -32,17 +32,17 @@ class Posts extends Model
         'target_device'
     ];
 
-    public function getCategoryMap()
+    public function Category()
     {
-        return $this->belongsTo(GkCategoryPost::class,'id','post_id');
+        return $this->hasMany(GkCategoryPost::class,'id','post_id');
     }
 
-    public function getMonth()
+    public function Month()
     {
         return $this->belongsTo('App\MonthTags','month_id','id');
     }
 
-    public function getSeo()
+    public function Seo()
     {
         return $this->hasOne(PostSeo::class,'post_id','id');
     }
@@ -50,7 +50,7 @@ class Posts extends Model
 
     public static function getCompletePostData()
     {
-        return Posts::with(['getCategoryMap.getCategory','getMonth','getSeo'])->simplePaginate(10);
+        return Posts::with(['Category','Month','Seo'])->simplePaginate(10);
 
     }
 }
