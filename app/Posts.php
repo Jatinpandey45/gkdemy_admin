@@ -47,6 +47,11 @@ class Posts extends Model
         return $this->hasOne(PostSeo::class,'post_id','id');
     }
 
+    public function Tags()
+    {
+        return $this->belongsToMany('App\Tags','gk_tag_post','post_id','tag_id');
+    }
+
 
     public static function getCompletePostData()
     {
