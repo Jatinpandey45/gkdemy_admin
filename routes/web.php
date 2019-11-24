@@ -11,6 +11,19 @@
 |
 */
 
-Route::get('/', function () {
+
+Route::get('/{slug?}', function() {
     return view('welcome');
+});
+
+Route::get('/{category?}/{slug?}', function() {
+
+    return view('welcome');
+
+});
+
+Route::get('/{month?}/{category?}/{slug?}/', function() {
+
+    return view('welcome');
+    
 });
