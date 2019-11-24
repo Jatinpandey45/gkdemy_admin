@@ -34,14 +34,14 @@ class Tags extends Model
     public static function getAllTagRelatedPost()
      {
 
-        return Tags::with('post.Category','post.Tags','post.Month','post.Seo')->simplePaginate(10);
+        return Tags::with('post.Category','post.Tags','post.Month','post.Seo')->paginate(10);
 
      }
 
 
      public static function getAllTagRelatedPostById($id)
      {
-        return Tags::with('post.Category','post.Tags','post.Month','post.Seo')->where('id',$id)->first();
+        return Tags::with('post.Category','post.Tags','post.Month','post.Seo')->paginate(10)->where('id',$id)->first();
      }
 
     public static function searchTags($search)

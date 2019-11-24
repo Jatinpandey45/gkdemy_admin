@@ -55,7 +55,7 @@ class Posts extends Model
 
     public static function getCompletePostData()
     {
-        return Posts::with(['Category','Month','Seo'])->simplePaginate(10);
+        return Posts::with(['Category','Month','Seo'])->paginate(10);
 
     }
 
