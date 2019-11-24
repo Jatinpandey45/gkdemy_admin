@@ -41,7 +41,7 @@ class Tags extends Model
 
      public static function getAllTagRelatedPostById($id)
      {
-        return Tags::with('post.Category','post.Tags','post.Month','post.Seo')->paginate(10)->where('id',$id)->first();
+        return Tags::where('id',$id)->with('post.Category','post.Tags','post.Month','post.Seo')->paginate(10)->first();
      }
 
     public static function searchTags($search)
