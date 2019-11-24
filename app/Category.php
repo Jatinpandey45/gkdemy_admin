@@ -35,7 +35,7 @@ class Category extends Model
 
       $categoryId = is_null($category) ? 0 : $category->id;
 
-       $paginatedPost =  GkCategoryPost::with('post')->where('category_id',$categoryId)->orWhere('')->paginate(10);
+       $paginatedPost =  GkCategoryPost::with('post')->where('category_id',$categoryId)->paginate(10);
     
        return ['post' => $paginatedPost,'category' => $category];
     }
