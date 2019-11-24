@@ -30,7 +30,7 @@ class Category extends Model
 
     public static function getCategoryWisePost($id)
     {
-       return Category::with('post.Category','post.Tags','post.Month','post.Seo')->where('id',$id)->get();
+       return Category::with('post.Category','post.Tags','post.Month','post.Seo')->where('id',$id)->first();
     }
 
 }

@@ -66,6 +66,6 @@ class Posts extends Model
 
     public static function getPostById($id)
     {
-        return Posts::with(['Category','Month','Seo','Tags'])->where('id',$id)->get();
+        return Posts::with(['Category','Month','Seo','Tags'])->where('id',$id)->first();
     }
 }
