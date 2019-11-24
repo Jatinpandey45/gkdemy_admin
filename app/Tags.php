@@ -49,7 +49,7 @@ class Tags extends Model
                                     $q->with('Seo');
                                     $q->paginate(10);
 
-                            }])->where('id', $id)->first();
+                            }])->where('id', $id)->get();
     }
 
     public static function searchTags($search)
