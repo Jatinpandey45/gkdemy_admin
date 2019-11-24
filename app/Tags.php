@@ -26,6 +26,24 @@ class Tags extends Model
         return $this->belongsTo(Lang::class);
     }
 
+    public function post()
+    {
+        return $this->belongsToMany('App\Posts','gk_tag_post','tag_id','post_id');
+    }
+
+    public static function getAllTagRelatedPost()
+     {
+
+        return Tags::with('post.Category','post.Tags','post.Month','post.Seo')->simplePaginate(10);
+
+     }
+
+
+     public static function getAllTagRelatedPostById($id)
+     {
+        return Tags::with('post.Category','post.Tags','post.Month','post.Seo')->where('id',$id)->first();
+     }
+
     public static function searchTags($search)
     {
         return Tags::

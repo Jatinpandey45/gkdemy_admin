@@ -21,4 +21,5 @@ Route::resource('home','HomeController');
 Route::resource('category','CategoryController');
 Route::resource('month','MonthController');
 Route::resource('post','PostController');
+Route::resource('tag','TagController');
 
