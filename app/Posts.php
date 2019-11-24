@@ -52,11 +52,9 @@ class Posts extends Model
         return $this->belongsToMany('App\Tags','gk_tag_post','post_id','tag_id');
     }
 
-
     public static function getCompletePostData()
     {
         return Posts::with(['Category','Month','Seo'])->paginate(10);
-
     }
 
     public static function getLatestPost()
