@@ -13,12 +13,12 @@ class GkTagPost extends Model
         'post_id'
     ];
 
-    public function getTags()
+    public function tag()
     {
         return $this->belongsTo(Tags::class);
     }
 
-    public function getPost()
+    public function post()
     {
         return $this->belongsTo(Posts::class);
     }
