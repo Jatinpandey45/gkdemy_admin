@@ -42,7 +42,11 @@ class Tags extends Model
     public static function getAllTagRelatedPostById($id)
     {
 
-        return Tags::find($id)->post()->orderBy('created_at','DESC')->paginate(10);
+        $paginatedPost =  Tags::find($id)->with('post.Category', 'post.Tags', 'post.Month', 'post.Seo')->orderBy('created_at','DESC')->paginate(10);
+        
+        $tag = Tags::find($id);
+
+        return ['post' => $paginatedPost,'tag' => $tag];
 
     }
 
