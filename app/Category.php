@@ -30,9 +30,9 @@ class Category extends Model
 
     public static function getCategoryWisePost($id)
     {
-     
-       $paginatedPost =  Category::find($id)->with('post.Category', 'post.Tags', 'post.Month', 'post.Seo')->orderBy('created_at','DESC')->paginate(10);
-        
+
+       $paginatedPost =  GkCategoryPost::with('post')->where('category_id',$id)->paginate(10);
+    
        $category = Category::find($id);
    
        return ['post' => $paginatedPost,'category' => $category];

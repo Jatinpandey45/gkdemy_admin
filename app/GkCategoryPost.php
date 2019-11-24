@@ -13,12 +13,12 @@ class GkCategoryPost extends Model
         'post_id'
     ];
 
-    public function getCategory()
+    public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function getPost()
+    public function post()
     {
         return $this->belongsTo(Posts::class);
     }
