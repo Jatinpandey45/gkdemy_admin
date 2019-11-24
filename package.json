@@ -32,6 +32,7 @@
         "redux-thunk": "^2.3.0"
     },
     "dependencies": {
+        "react-icons": "^3.8.0",
         "react-shimmer-effect": "^1.0.9"
     }
 }
