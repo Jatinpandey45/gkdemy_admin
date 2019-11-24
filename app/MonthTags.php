@@ -26,12 +26,14 @@ class MonthTags extends Model
 
     public static function getMonthlyWisePost($id)
     {
-       
-    $paginatedPost =  Posts::with('Category', 'Tags', 'Seo')->where('month_id',$id)->orderBy('created_at','DESC')->paginate(10);
-        
-    $month = MonthTags::find($id);
 
-    return ['post' => $paginatedPost,'month' => $month];
+        $month = MonthTags::where('id',$id)->orWhere('month_slug',$id)->first();
+       
+        $monthId = is_null($month->id) ? 0 : $month->id;
+        
+        $paginatedPost =  Posts::with('Category', 'Tags', 'Seo')->where('month_id',$monthId)->orderBy('created_at','DESC')->paginate(10);
+        
+        return ['post' => $paginatedPost,'month' => $month];
 
     }
   

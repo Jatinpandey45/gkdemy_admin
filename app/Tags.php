@@ -42,11 +42,12 @@ class Tags extends Model
     public static function getAllTagRelatedPostById($id)
     {
 
+        $tag = Tags::where('id',$id)->orWhere('tag_slug',$id)->first();
+       
+        $tagId = is_null($tag->id) ? 0 : $tag->id;
 
-        $paginatedPost = GkTagPost::with('post')->where('tag_id',$id)->paginate(10);
+        $paginatedPost = GkTagPost::with('post')->where('tag_id',$tagId)->paginate(10);
         
-        $tag = Tags::find($id);
-
         return ['post' => $paginatedPost,'tag' => $tag];
 
     }

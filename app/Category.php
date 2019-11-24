@@ -31,10 +31,12 @@ class Category extends Model
     public static function getCategoryWisePost($id)
     {
 
-       $paginatedPost =  GkCategoryPost::with('post')->where('category_id',$id)->paginate(10);
+      $category = Category::where('id',$id)->orWhere('category_slug',$id)->first();
+
+      $categoryId = is_null($category) ? 0 : $category->id;
+
+       $paginatedPost =  GkCategoryPost::with('post')->where('category_id',$categoryId)->orWhere('')->paginate(10);
     
-       $category = Category::find($id);
-   
        return ['post' => $paginatedPost,'category' => $category];
     }
 
