@@ -32,7 +32,9 @@
         "redux-thunk": "^2.3.0"
     },
     "dependencies": {
+        "jquery": "^3.4.1",
         "react-icons": "^3.8.0",
-        "react-shimmer-effect": "^1.0.9"
+        "react-shimmer-effect": "^1.0.9",
+        "watch": "^1.0.2"
     }
 }
