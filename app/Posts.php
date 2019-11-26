@@ -54,7 +54,7 @@ class Posts extends Model
 
     public static function getCompletePostData()
     {
-        return Posts::with(['Category','Month','Seo'])->paginate(10);
+        return Posts::with(['Category','Month','Seo'])->orderBy('created_at','DESC')->paginate(10);
     }
 
     public static function getLatestPost()
