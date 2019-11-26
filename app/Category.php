@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Posts;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+
 class Category extends Model
 {
     use SoftDeletes;
@@ -46,7 +47,7 @@ class Category extends Model
 
       $categoryId = is_null($category) ? 0 : $category->id;
 
-       $paginatedPost =  GkCategoryPost::with('post')->where('category_id',$categoryId)->orderBy('created_at','DESC')->paginate(10);
+       $paginatedPost =  GkCategoryPost::with('post')->where('category_id',$categoryId)->orderBy('created_at','DESC')->paginate(config('constants.PAGINATION_LIMIT'));
     
        return ['post' => $paginatedPost,'category' => $category];
     }

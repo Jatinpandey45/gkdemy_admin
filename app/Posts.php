@@ -54,12 +54,12 @@ class Posts extends Model
 
     public static function getCompletePostData()
     {
-        return Posts::with(['Category', 'Month', 'Seo'])->orderBy('created_at', 'DESC')->paginate(10);
+        return Posts::with(['Category', 'Month', 'Seo'])->orderBy('created_at', 'DESC')->paginate(config('constants.PAGINATION_LIMIT'));
     }
 
     public static function getLatestPost()
     {
-        return Posts::with(['Category', 'Month', 'Seo'])->orderBy('id', 'Desc')->take(10)->get();
+        return Posts::with(['Category', 'Month', 'Seo'])->orderBy('id', 'Desc')->take(config('constants.PAGINATION_LIMIT'))->get();
     }
 
     public static function getPostById($id)
@@ -70,7 +70,7 @@ class Posts extends Model
                 $query->where('id', $id);
 
             } else {
-                
+
                 $query->where('post_slug', $id);
             }
         })->first();
