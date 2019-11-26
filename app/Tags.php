@@ -42,7 +42,20 @@ class Tags extends Model
     public static function getAllTagRelatedPostById($id)
     {
 
-        $tag = Tags::where('id',$id)->orWhere('tag_slug',$id)->first();
+     
+        $tag = Tags::where(function($query) use ($id){
+
+            if (is_numeric($id)) {
+
+                $query->where('id', $id);
+
+            } else {
+                
+                $query->where('tag_slug', $id);
+            }
+            
+        })->first();
+       
        
         $tagId = is_null($tag->id) ? 0 : $tag->id;
 
