@@ -31,7 +31,18 @@ class Category extends Model
     public static function getCategoryWisePost($id)
     {
 
-      $category = Category::where('id',$id)->orWhere('category_slug',$id)->first();
+      $category = Category::where(function($query) use ($id){
+
+        if (is_numeric($id)) {
+
+            $query->where('id', $id);
+
+        } else {
+            
+            $query->where('category_slug', $id);
+        }
+        
+    })->first();
 
       $categoryId = is_null($category) ? 0 : $category->id;
 
@@ -39,8 +50,6 @@ class Category extends Model
     
        return ['post' => $paginatedPost,'category' => $category];
     }
-
-
 
    
 
