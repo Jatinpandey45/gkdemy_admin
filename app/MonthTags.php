@@ -27,7 +27,18 @@ class MonthTags extends Model
     public static function getMonthlyWisePost($id)
     {
 
-        $month = MonthTags::where('id',$id)->orWhere('month_slug',$id)->first();
+        $month = MonthTags::where(function($query) use ($id){
+
+            if (is_numeric($id)) {
+
+                $query->where('id', $id);
+
+            } else {
+                
+                $query->where('month_slug', $id);
+            }
+            
+        })->first();
        
         $monthId = is_null($month->id) ? 0 : $month->id;
         
