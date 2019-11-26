@@ -27,11 +27,22 @@ class MonthTags extends Model
     public static function getMonthlyWisePost($id)
     {
 
-        $month = MonthTags::where('id',$id)->orWhere('month_slug',$id)->first();
+        $month = MonthTags::where(function($query) use ($id){
+
+            if (is_numeric($id)) {
+
+                $query->where('id', $id);
+
+            } else {
+                
+                $query->where('month_slug', $id);
+            }
+
+        })->first();
        
         $monthId = is_null($month->id) ? 0 : $month->id;
         
-        $paginatedPost =  Posts::with('Category', 'Tags', 'Seo')->where('month_id',$monthId)->orderBy('created_at','DESC')->paginate(10);
+        $paginatedPost =  Posts::with('Category', 'Tags', 'Seo')->where('month_id',$monthId)->orderBy('created_at','DESC')->paginate(config('constants.PAGINATION_LIMIT'));
         
         return ['post' => $paginatedPost,'month' => $month];
 

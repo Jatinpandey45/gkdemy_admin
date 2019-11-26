@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Posts;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+
 class Category extends Model
 {
     use SoftDeletes;
@@ -31,16 +32,25 @@ class Category extends Model
     public static function getCategoryWisePost($id)
     {
 
-      $category = Category::where('id',$id)->orWhere('category_slug',$id)->first();
+      $category = Category::where(function($query) use ($id){
+
+        if (is_numeric($id)) {
+
+            $query->where('id', $id);
+
+        } else {
+            
+            $query->where('category_slug', $id);
+        }
+        
+    })->first();
 
       $categoryId = is_null($category) ? 0 : $category->id;
 
-       $paginatedPost =  GkCategoryPost::with('post')->where('category_id',$categoryId)->paginate(10);
+       $paginatedPost =  GkCategoryPost::with('post')->where('category_id',$categoryId)->orderBy('created_at','DESC')->paginate(config('constants.PAGINATION_LIMIT'));
     
        return ['post' => $paginatedPost,'category' => $category];
     }
-
-
 
    
 
