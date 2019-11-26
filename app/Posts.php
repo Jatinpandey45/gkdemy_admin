@@ -66,8 +66,8 @@ class Posts extends Model
     {
         return Posts::with(['Category','Month','Seo','Tags'])->where(function($query) use ($id){
 
-                    $query->where('id',$id)->orWhere('post_slug',$id)->first();
-        });
+                    $query->where('id',$id)->orWhere('post_slug',$id);
+        })->first();
              
        
     }
