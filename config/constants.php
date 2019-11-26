@@ -1,6 +1,5 @@
 <?php 
 
 return [
-    
-    'PAGINATION_LIMIT'  => 10
+    'PAGINATION_LIMIT' => 5
 ];
