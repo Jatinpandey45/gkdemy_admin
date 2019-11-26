@@ -34,41 +34,45 @@ class Posts extends Model
 
     public function Category()
     {
-        return $this->belongsToMany('App\Category','gk_category_post','post_id','category_id')->select(['category_name','category_id','category_slug']);
+        return $this->belongsToMany('App\Category', 'gk_category_post', 'post_id', 'category_id')->select(['category_name', 'category_id', 'category_slug']);
     }
 
     public function Month()
     {
-        return $this->belongsTo('App\MonthTags','month_id','id');
+        return $this->belongsTo('App\MonthTags', 'month_id', 'id');
     }
 
     public function Seo()
     {
-        return $this->hasOne(PostSeo::class,'post_id','id');
+        return $this->hasOne(PostSeo::class, 'post_id', 'id');
     }
 
     public function Tags()
     {
-        return $this->belongsToMany('App\Tags','gk_tag_post','post_id','tag_id');
+        return $this->belongsToMany('App\Tags', 'gk_tag_post', 'post_id', 'tag_id');
     }
 
     public static function getCompletePostData()
     {
-        return Posts::with(['Category','Month','Seo'])->orderBy('created_at','DESC')->paginate(10);
+        return Posts::with(['Category', 'Month', 'Seo'])->orderBy('created_at', 'DESC')->paginate(10);
     }
 
     public static function getLatestPost()
     {
-        return Posts::with(['Category','Month','Seo'])->orderBy('id','Desc')->take(10)->get();
+        return Posts::with(['Category', 'Month', 'Seo'])->orderBy('id', 'Desc')->take(10)->get();
     }
 
     public static function getPostById($id)
     {
-        return Posts::with(['Category','Month','Seo','Tags'])->where(function($query) use ($id){
+        return Posts::with(['Category', 'Month', 'Seo', 'Tags'])->where(function ($query) use ($id) {
+            if (is_numeric($id)) {
 
-                    $query->where('id',$id)->orWhere('post_slug',$id);
+                $query->where('id', $id);
+
+            } else {
+                
+                $query->where('post_slug', $id);
+            }
         })->first();
-             
-       
     }
 }
