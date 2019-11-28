@@ -54,12 +54,12 @@ class Posts extends Model
 
     public static function getCompletePostData()
     {
-        return Posts::with(['Category', 'Month', 'Seo'])->orderBy('created_at', 'DESC')->paginate(config('constants.PAGINATION_LIMIT'));
+        return Posts::with(['Category', 'Month', 'Seo','Tags'])->orderBy('created_at', 'DESC')->paginate(config('constants.PAGINATION_LIMIT'));
     }
 
     public static function getLatestPost()
     {
-        return Posts::with(['Category', 'Month', 'Seo'])->orderBy('id', 'Desc')->take(config('constants.PAGINATION_LIMIT'))->get();
+        return Posts::with(['Category', 'Month', 'Seo','Tags'])->orderBy('id', 'Desc')->take(config('constants.PAGINATION_LIMIT'))->get();
     }
 
     public static function getPostById($id)
