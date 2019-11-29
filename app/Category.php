@@ -47,7 +47,7 @@ class Category extends Model
 
       $categoryId = is_null($category) ? 0 : $category->id;
 
-       $paginatedPost =  GkCategoryPost::with('post')->where('category_id',$categoryId)->orderBy('created_at','DESC')->paginate(config('constants.PAGINATION_LIMIT'));
+       $paginatedPost =  GkCategoryPost::with('post.Tags', 'post.Month', 'post.Seo')->where('category_id',$categoryId)->orderBy('created_at','DESC')->paginate(config('constants.PAGINATION_LIMIT'));
     
        return ['post' => $paginatedPost,'category' => $category];
     }
