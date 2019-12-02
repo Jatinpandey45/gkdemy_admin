@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "http://www.gkdemy.com",
+  "start_url": "http://gkdemy.com",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
