@@ -6,6 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>GKDemy</title>
         <link href="{{mix('css/app.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{asset('js/manifest.json')}}" rel="manifest">
+
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
     </head>
     <body data-aos-easing="ease" data-aos-duration="1500" data-aos-delay="0" class="body-scrolled navbar-scrolled">
         <div id="root"></div>
