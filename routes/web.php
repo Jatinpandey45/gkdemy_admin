@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/{month?}/{category?}/{slug?}/', function() {
+Route::get('/{month?}/{category?}/{slug?}/{page?}/{pagevalue?/}', function() {
     return view('welcome');
 });
