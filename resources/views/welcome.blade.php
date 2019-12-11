@@ -7,6 +7,13 @@
         <title>GKDemy</title>
         <link href="{{mix('css/app.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('js/manifest.json')}}" rel="manifest">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-RTNY5R8LZR"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-RTNY5R8LZR');
+        </script>
 
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
