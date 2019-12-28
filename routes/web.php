@@ -11,6 +11,9 @@
 |
 */
 
+// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/current-affairs/{slug}', 'PostController@postDetail');
+
 Route::get('/{month?}/{category?}/{slug?}/{page?}/{pagevalue?/}', function() {
     return view('welcome');
 });
