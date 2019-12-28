@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Tags;
+use App\AdminJobPosts;
 use Illuminate\Http\Request;
 
-class TagController extends Controller
+class JobPostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tagsPosts = Tags::getAllTagRelatedPost();
-        
-        return response()->json($tagsPosts);
+        $result = AdminJobPosts::getAllPosts();
+        return response()->json($result);
     }
 
     /**
@@ -48,7 +47,7 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        $result = Tags::getAllTagRelatedPostById($id);
+        $result = AdminJobPosts::getPostById($id);
         
         return response()->json($result);
     }
