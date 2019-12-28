@@ -57,7 +57,7 @@ class Tags extends Model
         })->first();
        
        
-        $tagId = is_null($tag->id) ? 0 : $tag->id;
+        $tagId = is_null($tag) ? 0 : $tag->id;
 
         $paginatedPost = GkTagPost::with('post.Category','post.Month', 'post.Seo')->where('tag_id',$tagId)->paginate(config('constants.PAGINATION_LIMIT'));
         

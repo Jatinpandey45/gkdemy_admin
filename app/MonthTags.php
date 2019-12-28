@@ -40,7 +40,7 @@ class MonthTags extends Model
 
         })->first();
        
-        $monthId = is_null($month->id) ? 0 : $month->id;
+        $monthId = is_null($month) ? 0 : $month->id;
         
         $paginatedPost =  Posts::with('Category', 'Tags', 'Seo')->where('month_id',$monthId)->orderBy('created_at','DESC')->paginate(config('constants.PAGINATION_LIMIT'));
         
