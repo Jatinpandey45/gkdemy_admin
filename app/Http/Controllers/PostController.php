@@ -91,4 +91,10 @@ class PostController extends Controller
     {
         //
     }
+
+    public function postDetail($id)
+    {
+        $result  = Posts::getPostById($id);
+        return view('welcome', ['post' => response()->json($result)->getData()]);
+    }
 }
