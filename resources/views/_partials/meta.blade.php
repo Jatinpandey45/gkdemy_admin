@@ -4,8 +4,8 @@
 
     <meta property="og:type" content="Current Affairs" />
     <meta property="og:title" content="{{ $post->seo->keyword }}" />
-    <meta property="og:url" content="{{ `www.gkdemy.com/current-affairs/{$post->post_slug}` }}" />
-    <meta property="og:image" content="{{ `http://admin.gkdemy.com{$post->featured_image}` }}" />
+    <meta property="og:url" content="www.gkdemy.com/current-affairs/{{$post->post_slug}}" />
+    <meta property="og:image" content="http://admin.gkdemy.com/{{$post->featured_image}}" />
     <meta property="og:description" content="{{ $post->seo->description }}" />
     <meta property="og:site_name" content="GkDemy" />
     <meta property="article:published_time" content="{{ $post->publish_at }}" />
@@ -22,10 +22,10 @@
         @endforeach
     @endisset --}}
     <meta name="twitter:card" content="Current Affairs" />
-    <meta name="twitter:site" content="{{`www.gkdemy.com{$post->featured_image}` }}" />
+    <meta name="twitter:site" content="www.gkdemy.com/current-affairs/{{$post->post_slug}}" />
     <meta name="twitter:title" content="{{ $post->seo->keyword }}" />
     <meta name="twitter:description" content="{{ $post->seo->description }}" />
-    <meta name="twitter:image" content="{{ `www.gkdemy.com{$post->featured_image}` }}" />
+    <meta name="twitter:image" content="http://admin.gkdemy.com/{{$post->featured_image}}" />
 @else
     <title>GKDemy</title>
 @endif
