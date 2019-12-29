@@ -22,7 +22,7 @@
         @endforeach
     @endisset --}}
     <meta name="twitter:card" content="Current Affairs" />
-    <meta name="twitter:site" content="{{`www.gkdemy.com{$post->featured_image}` }"}/>
+    <meta name="twitter:site" content="{{`www.gkdemy.com{$post->featured_image}` }}" />
     <meta name="twitter:title" content="{{ $post->seo->keyword }}" />
     <meta name="twitter:description" content="{{ $post->seo->description }}" />
     <meta name="twitter:image" content="{{ `www.gkdemy.com{$post->featured_image}` }}" />
