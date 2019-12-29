@@ -34,7 +34,9 @@ class Posts extends Model
 
     public function Category()
     {
-        return $this->belongsToMany('App\Category', 'gk_category_post', 'post_id', 'category_id')->select(['category_name', 'category_id', 'category_slug']);
+        return $this->belongsToMany('App\Category', 'gk_category_post', 'post_id', 'category_id')
+                    
+                     ->select(['category_name', 'category_id', 'category_slug']);
     }
 
     public function Month()
@@ -52,14 +54,34 @@ class Posts extends Model
         return $this->belongsToMany('App\Tags', 'gk_tag_post', 'post_id', 'tag_id');
     }
 
-    public static function getCompletePostData()
+    public static function getCompletePostData($condition = [])
     {
-        return Posts::with(['Category', 'Month', 'Seo','Tags'])->orderBy('created_at', 'DESC')->paginate(config('constants.PAGINATION_LIMIT'));
+        return Posts::with(['Category', 'Month', 'Seo', 'Tags'])
+
+
+            ->whereHas('category',function($query) use ($condition) {
+
+                    if(!empty($condition['category'])) {
+
+                        $query->whereIn('gk_category.id',explode(',',$condition['category']));
+                    }
+
+            })
+
+            ->when(!empty($condition['date']), function ($query) use ($condition) {
+
+                $query->whereDate('publish_at','<=' ,$condition['date']);
+            
+             })
+
+            ->orderBy('created_at', 'DESC')->paginate(config('constants.PAGINATION_LIMIT'));
     }
 
     public static function getLatestPost()
     {
-        return Posts::with(['Category', 'Month', 'Seo','Tags'])->orderBy('id', 'Desc')->take(config('constants.PAGINATION_LIMIT'))->get();
+        return Posts::with(['Category', 'Month', 'Seo', 'Tags'])->orderBy('id', 'Desc')
+            
+                        ->take(config('constants.PAGINATION_LIMIT'))->get();
     }
 
     public static function getPostById($id)
@@ -68,7 +90,6 @@ class Posts extends Model
             if (is_numeric($id)) {
 
                 $query->where('id', $id);
-
             } else {
 
                 $query->where('post_slug', $id);
