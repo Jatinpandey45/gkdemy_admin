@@ -12,10 +12,14 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
        
-        $result  = Posts::getCompletePostData();
+        $conditions = [];
+        $conditions['category'] =  $request->get('category','');
+       // $conditions['date'] = $request->get('date','');
+       
+        $result  = Posts::getCompletePostData($conditions);
 
         return response()->json($result);
     }
