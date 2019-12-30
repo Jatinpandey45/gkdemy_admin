@@ -13,7 +13,15 @@ import reducers from '../theme/src/reducers';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
 
-const rootElement = document.getElementById("root");
+if (document.getElementById("root")) {
+    const rootElement = document.getElementById("root");
+    ReactDOM.hydrate(
+        <Provider store={store} >
+            <App />
+        </Provider>,
+        rootElement
+    );
+}
 // if (rootElement.hasChildNodes()) {
 //     ReactDOM.hydrate(
 //         <Provider store={store} >
@@ -23,12 +31,12 @@ const rootElement = document.getElementById("root");
 //     );
 // } else {
     // render(<App />, rootElement);
-    ReactDOM.render(
-        <Provider store={store} >
-            <App />
-        </Provider>,
-        rootElement
-    );
+    // ReactDOM.render(
+    //     <Provider store={store} >
+    //         <App />
+    //     </Provider>,
+    //     rootElement
+    // );
 // }
 
 // If you want your app to work offline and load faster, you can change
