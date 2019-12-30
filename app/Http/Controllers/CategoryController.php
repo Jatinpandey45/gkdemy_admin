@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use Illuminate\Http\Response;
 
 class CategoryController extends Controller
 {
@@ -16,6 +17,19 @@ class CategoryController extends Controller
     {
         return response()->json(Category::all());
     }
+
+   
+    /**
+     * Display a listing of the resource as api resources.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function getAllCategoryList()
+    {
+        return response()->json(['code' => Response::HTTP_OK,'data' => Category::all(),'message' => "success"]);
+    }
+
 
     /**
      * Show the form for creating a new resource.

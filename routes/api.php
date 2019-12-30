@@ -23,4 +23,5 @@ Route::resource('month','MonthController');
 Route::resource('post','PostController');
 Route::resource('tag','TagController');
 Route::resource('jobs','JobPostController');
+Route::get('all-category','CategoryController@getAllCategoryList');
 
