@@ -19,10 +19,10 @@
 
     </head>
     <body data-aos-easing="ease" data-aos-duration="1500" data-aos-delay="0" class="body-scrolled navbar-scrolled">
+        {{-- @isset($post)
+            {!! ssr('js/post-server.js')->context('post', $post)->render() !!}
+        @endisset --}}
         <div id="root">
-            {{-- @isset($post)
-                {!! ssr('js/post-server.js')->context('post', $post)->render() !!}
-            @endisset --}}
         </div>
         <script src="{{mix('js/app.js')}}" ></script>
     </body>

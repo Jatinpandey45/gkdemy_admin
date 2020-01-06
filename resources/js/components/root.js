@@ -15,7 +15,7 @@ const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
 
 if (document.getElementById("root")) {
     const rootElement = document.getElementById("root");
-    ReactDOM.hydrate(
+    ReactDOM.render(
         <Provider store={store} >
             <App />
         </Provider>,
