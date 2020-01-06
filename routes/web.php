@@ -16,4 +16,5 @@ Route::get('/current-affairs/{slug}', 'PostController@postDetail');
 
 Route::get('/{month?}/{category?}/{slug?}/{page?}/{pagevalue?/}', function() {
     return view('welcome');
+    return view('maintenance');
 });

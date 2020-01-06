@@ -37802,6 +37802,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-helmet */ "./node_modules/react-helmet/lib/Helmet.js");
 /* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_helmet__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _url__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../url */ "./resources/js/theme/src/components/url/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -37819,6 +37820,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -37888,7 +37890,7 @@ function (_Component) {
           content: "www.gkdemy.com/current-affairs/".concat(this.props.post.post_slug)
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
           property: "og:image",
-          content: "http://admin.gkdemy.com".concat(this.props.post.featured_image)
+          content: "".concat(_url__WEBPACK_IMPORTED_MODULE_2__["ADMIN_BASE_URL"]).concat(this.props.post.featured_image)
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("meta", {
           property: "og:description",
           content: this.props.post.seo.description
@@ -37948,6 +37950,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_icons_ai__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-icons/ai */ "./node_modules/react-icons/ai/index.esm.js");
 /* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-helmet */ "./node_modules/react-helmet/lib/Helmet.js");
 /* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_helmet__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _url__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../url */ "./resources/js/theme/src/components/url/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -37970,6 +37973,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
  // import Tag from '../Posts/tag';
 // import Category from '../Posts/category';
+
 
 
 
@@ -38010,7 +38014,7 @@ function (_React$Component) {
         className: "text-center gk-post-img pr-3 float-left"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
         className: "mt-2",
-        src: "http://admin.gkdemy.com".concat(this.props.post.featured_image),
+        src: "".concat(_url__WEBPACK_IMPORTED_MODULE_7__["ADMIN_BASE_URL"]).concat(this.props.post.featured_image),
         alt: "..."
       }));
     }
@@ -38119,6 +38123,22 @@ var html = react_dom_server__WEBPACK_IMPORTED_MODULE_2___default.a.renderToStrin
   post: post
 }));
 dispatch(html);
+
+/***/ }),
+
+/***/ "./resources/js/theme/src/components/url/index.js":
+/*!********************************************************!*\
+  !*** ./resources/js/theme/src/components/url/index.js ***!
+  \********************************************************/
+/*! exports provided: ADMIN_BASE_URL, FRONT_BASE_URL */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADMIN_BASE_URL", function() { return ADMIN_BASE_URL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FRONT_BASE_URL", function() { return FRONT_BASE_URL; });
+var ADMIN_BASE_URL = 'https://admin.gkdemy.com';
+var FRONT_BASE_URL = 'https://gkdemy.com/';
 
 /***/ }),
 
