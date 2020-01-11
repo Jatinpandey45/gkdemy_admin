@@ -38137,7 +38137,7 @@ dispatch(html);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADMIN_BASE_URL", function() { return ADMIN_BASE_URL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FRONT_BASE_URL", function() { return FRONT_BASE_URL; });
-var ADMIN_BASE_URL = 'https://admin.gkdemy.com';
+var ADMIN_BASE_URL = 'http://admin.gkdemy.com';
 var FRONT_BASE_URL = 'https://gkdemy.com/';
 
 /***/ }),
